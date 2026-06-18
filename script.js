@@ -342,3 +342,100 @@ document.addEventListener('DOMContentLoaded', function () {
   modal.addEventListener('click', function (e) { if (e.target === modal) close(); });
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
 });
+
+// 교육시설장비 모달
+document.addEventListener('DOMContentLoaded', function () {
+  var modal = document.getElementById('facilityModal');
+  if (!modal) return;
+  var wrap = document.getElementById('facWrap');
+  var infoModal = document.getElementById('infoModal');
+
+  var env = [
+    { name: '반도체 클린룸', loc: '3호관 109호',
+      desc: '반도체 제조 공정에서 가장 중요한 청정(먼지 없는) 환경을 재현한 핵심 실습실입니다. 학생들이 직접 방진복을 착용하고 들어가 미세 공정·소자 제작·측정 실습을 진행하며 실제 현장과 동일한 감각을 익힙니다.',
+      link: '반도체레이아웃설계 / 반도체공정측정분석' },
+    { name: '첨단반도체 로봇기술센터', loc: '4호관 102호',
+      desc: '반도체 생산 라인의 물류 자동화와 장비 제어를 위한 실습 공간입니다. 자동화공학과 중심 실무 교육이 이루어지며, 다관절·협동 로봇을 활용한 장비 제어와 소프트웨어 운용을 직접 테스트할 수 있습니다.',
+      link: '반도체설비자동화 / 반도체장비제어' }
+  ];
+  var equip = {
+    '반도체 공정 및 측정 장비': [
+      { name: '적외선 분광 분석기 (FT-IR)',
+        desc: '반도체 박막·소재의 화학적 성분과 분자 구조를 빛으로 정밀 측정하고 불량을 분석하는 필수 계측 장비.',
+        link: '반도체공정측정분석' },
+      { name: 'RF 스퍼터 (Sputter)',
+        desc: '웨이퍼 표면에 금속·절연체 박막을 얇고 균일하게 입히는 반도체 핵심 증착(Deposition) 실습 장비.',
+        link: '반도체공정측정분석' },
+      { name: '원자간력 현미경 (AFM)',
+        desc: '나노미터 단위 초미세 반도체 표면 형상을 원자 수준 해상도로 정밀 측정하는 첨단 분석 장비.',
+        link: '반도체레이아웃설계' }
+    ],
+    '장비 제어 및 자동화 실습 장비': [
+      { name: '반도체 장비 H/W 제어 실습 키트 (PLC 모듈 포함)',
+        desc: '실제 대기업 생산 라인에서 쓰이는 PLC·센서·공압 장치를 직접 연결·코딩하여 장비 메커니즘을 제어하는 실습 장비.',
+        link: '반도체장비제어 / 반도체설비운용' },
+      { name: '협동로봇 및 모바일 로봇 (AGV/AMR)',
+        desc: '웨이퍼 캐리어(FOUP) 이송 자동화 물류 시스템을 모사하여 로봇 경로를 프로그래밍·운용하는 첨단 제어 장비.',
+        link: '반도체설비자동화' }
+    ]
+  };
+
+  function itemHtml(it) {
+    return '<div class="fac-item"><div class="ftop"><h4>' + it.name + '</h4>'
+      + (it.loc ? '<span class="loc">' + it.loc + '</span>' : '') + '</div>'
+      + '<p>' + it.desc + '</p>'
+      + '<button class="fac-link" data-link>🔗 연관 과목: ' + it.link + '</button></div>';
+  }
+
+  function render(tab) {
+    var html = '';
+    if (tab === 'env') {
+      env.forEach(function (it) { html += itemHtml(it); });
+    } else {
+      Object.keys(equip).forEach(function (cat) {
+        html += '<div class="fac-cat">' + cat + '</div>';
+        equip[cat].forEach(function (it) { html += itemHtml(it); });
+      });
+    }
+    wrap.innerHTML = html;
+    // 연관 과목 클릭 → 교육과정 안내 모달
+    wrap.querySelectorAll('[data-link]').forEach(function (b) {
+      b.addEventListener('click', function () {
+        close();
+        if (infoModal) {
+          infoModal.classList.add('open');
+          document.body.style.overflow = 'hidden';
+          var btn = infoModal.querySelector('.modal-close');
+          if (!infoModal.querySelector('.acc')) {
+            // 안내 모달 내용이 아직 없으면 트리거 클릭으로 생성
+            var t = document.querySelector('[data-info]');
+            if (t) { infoModal.classList.remove('open'); t.click(); }
+          }
+        }
+      });
+    });
+  }
+
+  function setTab(tab) {
+    modal.querySelectorAll('.fac-tab').forEach(function (t) {
+      t.classList.toggle('active', t.getAttribute('data-ftab') === tab);
+    });
+    render(tab);
+  }
+  function open(tab) { setTab(tab || 'env'); modal.classList.add('open'); document.body.style.overflow = 'hidden'; }
+  function close() { modal.classList.remove('open'); document.body.style.overflow = ''; }
+
+  document.querySelectorAll('[data-facility]').forEach(function (btn) {
+    btn.addEventListener('click', function (e) {
+      e.preventDefault();
+      var t = btn.getAttribute('data-facility');
+      open(t === 'equip' ? 'equip' : 'env');
+    });
+  });
+  modal.querySelectorAll('.fac-tab').forEach(function (tab) {
+    tab.addEventListener('click', function () { setTab(tab.getAttribute('data-ftab')); });
+  });
+  modal.querySelector('.modal-close').addEventListener('click', close);
+  modal.addEventListener('click', function (e) { if (e.target === modal) close(); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
+});

@@ -36,10 +36,10 @@
         </ul>
       </div>
       <div class="menu-item">
-        <a href="#">교육시설장비</a>
+        <a href="#" data-facility>교육시설장비</a>
         <ul class="submenu">
-          <li><a href="#">교육환경</a></li>
-          <li><a href="#">교육장비</a></li>
+          <li><a href="#" data-facility="env">교육환경</a></li>
+          <li><a href="#" data-facility="equip">교육장비</a></li>
         </ul>
       </div>
       <div class="menu-item">
@@ -155,8 +155,8 @@
 <section class="sec">
   <div class="wrap">
     <div class="facility-grid">
-      <div class="facility"><div class="bar"></div><h3>교육환경</h3><p>반도체부트캠프사업단 교육환경을 안내합니다.</p><a class="more" href="#">자세히 보기 +</a></div>
-      <div class="facility"><div class="bar"></div><h3>교육장비</h3><p>현장과 동일한 실무형 교육장비를 안내합니다.</p><a class="more" href="#">자세히 보기 +</a></div>
+      <div class="facility"><div class="bar"></div><h3>교육환경</h3><p>반도체부트캠프사업단 교육환경을 안내합니다.</p><a class="more" href="#" data-facility="env">자세히 보기 +</a></div>
+      <div class="facility"><div class="bar"></div><h3>교육장비</h3><p>현장과 동일한 실무형 교육장비를 안내합니다.</p><a class="more" href="#" data-facility="equip">자세히 보기 +</a></div>
       <div class="facility"><div class="bar"></div><h3>참여기업</h3><p>사업단 협약 참여기업을 안내합니다.</p><a class="more" href="#">자세히 보기 +</a></div>
     </div>
   </div>
@@ -267,6 +267,19 @@
       <span class="rm-arrow">➔</span>
       <span class="rm-step">상시<br><b>기타</b><small>견학·채용 연계</small></span>
     </div>
+  </div>
+</div>
+
+<!-- 교육시설장비 모달 -->
+<div class="modal-overlay" id="facilityModal">
+  <div class="modal-box fac-box" role="dialog" aria-modal="true">
+    <button class="modal-close" aria-label="닫기">✕</button>
+    <h3 class="apply-title">교육시설 · 장비</h3>
+    <div class="apply-tabs">
+      <button class="fac-tab active" data-ftab="env">교육환경</button>
+      <button class="fac-tab" data-ftab="equip">교육장비</button>
+    </div>
+    <div class="fac-wrap" id="facWrap"></div>
   </div>
 </div>
 

@@ -257,3 +257,18 @@ table.atab tbody tr:hover{background:#eff6ff}
 .sch-ev .et .ek.cap{background:#0e7490}
 .sch-ev .ed{font-size:.8rem;color:var(--gray);margin-top:2px}
 .sch-none{color:#9ca3af;font-size:.85rem;align-self:center}
+
+/* 교육시설장비 모달 */
+.fac-box{max-width:720px}
+.fac-tab{flex:1;border:none;background:#f8fafc;color:#4b5563;font-weight:700;font-size:.92rem;padding:13px 8px;cursor:pointer;transition:.15s}
+.fac-tab:hover{background:#eef2f7}
+.fac-tab.active{background:var(--navy);color:#fff}
+.fac-wrap{margin-top:18px;display:flex;flex-direction:column;gap:14px}
+.fac-cat{font-size:.82rem;font-weight:800;color:var(--navy);margin:6px 0 -2px}
+.fac-item{border:1px solid var(--line);border-radius:12px;padding:16px 18px}
+.fac-item .ftop{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap}
+.fac-item h4{font-size:1.02rem;font-weight:800;color:#1f2937}
+.fac-item .loc{font-size:.78rem;color:var(--blue);font-weight:700;background:#dbeafe;padding:2px 9px;border-radius:5px}
+.fac-item p{margin-top:8px;font-size:.88rem;color:#4b5563;line-height:1.65}
+.fac-link{margin-top:12px;display:inline-flex;align-items:center;gap:5px;font-size:.82rem;font-weight:700;color:#fff;background:var(--blue);padding:7px 13px;border-radius:7px;cursor:pointer;border:none}
+.fac-link:hover{background:var(--navy)}
