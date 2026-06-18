@@ -1,0 +1,136 @@
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css');
+:root{
+  --navy:#0b2e6b; --navy-deep:#071c47; --blue:#1f5fd6; --blue-bright:#3b82f6;
+  --sky:#60a5fa; --yellow:#ffd84d; --red:#ef4444; --orange:#f97316;
+  --ink:#1f2937; --gray:#6b7280; --line:#e5e7eb; --bg:#eef2f7; --card:#ffffff;
+}
+*{box-sizing:border-box;margin:0;padding:0;font-family:'Pretendard',system-ui,sans-serif}
+body{background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased}
+a{text-decoration:none;color:inherit}
+.wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+.sec{padding:64px 0}
+.sec-head{text-align:center;margin-bottom:36px}
+.sec-head h2{font-size:1.9rem;font-weight:800;letter-spacing:-1px;color:#111827}
+.sec-head span{display:block;font-size:.9rem;color:var(--blue);font-weight:700;margin-bottom:6px;letter-spacing:1px}
+
+/* GNB */
+header{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50}
+.gnb{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:14px 24px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;color:var(--navy);font-size:1.05rem}
+.logo-mark{width:38px;height:38px;border-radius:9px;background:linear-gradient(135deg,var(--navy),var(--blue));display:flex;align-items:center;justify-content:center;color:var(--yellow);font-weight:900;font-size:1.3rem}
+.brand small{display:block;font-size:.72rem;color:var(--gray);font-weight:600}
+.menu{display:flex;gap:28px}
+.menu a{font-weight:600;color:#374151;font-size:.95rem}
+.menu a:hover{color:var(--blue)}
+.gnb-right{display:flex;align-items:center;gap:14px}
+.login{background:var(--navy);color:#fff;padding:9px 16px;border-radius:8px;font-weight:700;font-size:.85rem}
+.menu-toggle{display:none;background:none;border:none;font-size:1.6rem;color:var(--navy);cursor:pointer}
+
+/* HERO */
+.hero{position:relative;background:radial-gradient(120% 120% at 80% 0%,#1e4fb0 0%,#0b2e6b 55%,#071c47 100%);color:#fff;overflow:hidden}
+.hero .wrap{position:relative;z-index:2;padding-top:72px;padding-bottom:120px}
+.hero .eyebrow{color:var(--sky);font-weight:700;letter-spacing:1px;margin-bottom:14px}
+.hero h1{font-size:3rem;font-weight:800;line-height:1.2;letter-spacing:-1.5px}
+.hero h1 em{font-style:normal;color:var(--yellow)}
+.hero p{margin-top:18px;color:#c9d8f5;font-size:1.1rem;max-width:520px}
+.circuit{position:absolute;inset:0;z-index:1;opacity:.5}
+.chip{position:absolute;right:6%;top:50%;transform:translateY(-50%);width:340px;height:340px;z-index:1}
+@media(max-width:900px){.chip{display:none}.hero h1{font-size:2.1rem}}
+
+/* ===== 포인트 1: 실시간 신청 CTA 대시보드 ===== */
+.apply-deck{margin-top:-72px;position:relative;z-index:5}
+.apply-card{background:linear-gradient(135deg,#1f5fd6,#0b2e6b);color:#fff;border-radius:18px;padding:32px 36px;box-shadow:0 24px 50px -18px rgba(11,46,107,.55);display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center}
+.apply-card .pill{display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.3);color:#fff;padding:6px 13px;border-radius:999px;font-weight:700;font-size:.8rem;margin-bottom:12px}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--yellow);box-shadow:0 0 0 0 rgba(255,216,77,.7);animation:pulse 1.6s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(255,216,77,.7)}70%{box-shadow:0 0 0 9px rgba(255,216,77,0)}100%{box-shadow:0 0 0 0 rgba(255,216,77,0)}}
+.apply-card h3{font-size:1.65rem;font-weight:800;letter-spacing:-.5px}
+.apply-card .meta{margin-top:8px;color:#bcd0f5;font-size:.95rem;display:flex;flex-wrap:wrap;gap:18px}
+.apply-card .meta b{color:#fff}
+.cta-col{text-align:center}
+.dday-big{font-size:2.1rem;font-weight:900;color:var(--yellow);line-height:1}
+.dday-big small{display:block;font-size:.75rem;font-weight:700;color:#bcd0f5;letter-spacing:1px;margin-bottom:4px}
+.btn-apply{display:inline-block;margin-top:14px;background:var(--yellow);color:var(--navy-deep);padding:14px 26px;border-radius:10px;font-weight:800;font-size:1rem;transition:.18s}
+.btn-apply:hover{transform:translateY(-2px);box-shadow:0 10px 20px rgba(255,216,77,.35)}
+@media(max-width:760px){.apply-card{grid-template-columns:1fr;text-align:center}.apply-card .meta{justify-content:center}}
+
+/* 교육과정 3카드 */
+.course-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.course{border-radius:16px;padding:34px 28px;color:#fff;min-height:230px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden}
+.course:nth-child(1){background:linear-gradient(160deg,#0b2e6b,#123e8c)}
+.course:nth-child(2){background:linear-gradient(160deg,#2f73e0,#1f5fd6)}
+.course:nth-child(3){background:linear-gradient(160deg,#0e4a86,#0b3d72)}
+.course h3{font-size:1.45rem;font-weight:800;letter-spacing:-.5px}
+.course p{color:rgba(255,255,255,.82);font-size:.92rem;margin-top:10px}
+.course .more{align-self:flex-start;margin-top:22px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.35);padding:9px 16px;border-radius:8px;font-weight:700;font-size:.85rem}
+.course .more:hover{background:#fff;color:var(--navy)}
+@media(max-width:760px){.course-grid{grid-template-columns:1fr}}
+
+/* ===== 포인트 2: D-Day 카운트다운 타임라인 ===== */
+.timeline-sec{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.tl-rail{position:relative;display:flex;gap:18px;overflow-x:auto;padding:14px 4px 8px}
+.tl-rail::before{content:"";position:absolute;left:0;right:0;top:34px;height:2px;background:linear-gradient(90deg,var(--blue-bright),var(--line))}
+.tl-item{position:relative;flex:0 0 220px;background:#f8fafc;border:1px solid #eef2f7;border-radius:14px;padding:20px 18px 18px;z-index:1}
+.tl-node{width:14px;height:14px;border-radius:50%;background:#fff;border:3px solid var(--blue-bright);position:absolute;top:-29px;left:24px}
+.tl-item.soon .tl-node{border-color:var(--red);background:var(--red)}
+.dday{display:inline-block;font-weight:900;font-size:.95rem;color:#fff;background:var(--blue);padding:5px 12px;border-radius:999px;margin-bottom:12px}
+.tl-item.soon .dday{background:var(--red);animation:pulse2 1.8s infinite}
+.tl-item.ing .dday{background:var(--orange)}
+@keyframes pulse2{0%,100%{opacity:1}50%{opacity:.7}}
+.tl-item h4{font-size:1rem;font-weight:700;color:#1f2937;min-height:46px}
+.tl-item .date{margin-top:8px;font-size:.85rem;color:var(--gray);font-weight:600}
+.tl-item .tag{margin-top:10px;display:inline-block;font-size:.72rem;font-weight:700;color:var(--blue);background:#dbeafe;padding:3px 9px;border-radius:6px}
+
+/* ===== 포인트 3: 채용 연계 Zone ===== */
+.recruit-sec{background:linear-gradient(135deg,#071c47,#0b2e6b);color:#fff}
+.recruit-sec .sec-head h2{color:#fff}
+.recruit-sec .sec-head span{color:var(--yellow)}
+.recruit-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.comp{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:14px;padding:22px 20px;transition:.18s}
+.comp:hover{background:rgba(255,255,255,.12);transform:translateY(-4px);border-color:var(--sky)}
+.comp .row{display:flex;justify-content:space-between;align-items:flex-start;gap:8px}
+.comp .name{font-weight:800;font-size:1.1rem}
+.comp .status{font-size:.7rem;font-weight:800;color:var(--navy-deep);background:var(--yellow);padding:3px 9px;border-radius:6px;white-space:nowrap}
+.comp .status.gen{background:#bcd0f5}
+.comp .link-tag{margin-top:14px;font-size:.85rem;color:#bcd0f5}
+.comp .link-tag b{color:var(--sky)}
+.comp .deadline{margin-top:10px;font-size:.8rem;font-weight:700;color:var(--yellow)}
+.recruit-note{text-align:center;margin-top:28px;color:#bcd0f5;font-size:.95rem}
+.recruit-note b{color:#fff}
+@media(max-width:900px){.recruit-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:520px){.recruit-grid{grid-template-columns:1fr}}
+
+/* 시설/장비/참여기업 */
+.facility-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-radius:16px;overflow:hidden}
+.facility{padding:48px 34px;color:#fff;background:#1f5fd6;position:relative}
+.facility:nth-child(1){background:linear-gradient(rgba(11,46,107,.78),rgba(11,46,107,.78))}
+.facility:nth-child(2){background:linear-gradient(rgba(31,95,214,.78),rgba(31,95,214,.78))}
+.facility:nth-child(3){background:linear-gradient(rgba(14,74,134,.78),rgba(14,74,134,.78))}
+.facility .bar{width:36px;height:3px;background:var(--yellow);margin-bottom:16px}
+.facility h3{font-size:1.3rem;font-weight:800}
+.facility p{margin-top:10px;font-size:.9rem;color:rgba(255,255,255,.8)}
+.facility .more{display:inline-block;margin-top:18px;border:1px solid rgba(255,255,255,.4);padding:8px 16px;border-radius:8px;font-weight:700;font-size:.85rem}
+@media(max-width:760px){.facility-grid{grid-template-columns:1fr}}
+
+/* 커뮤니티 */
+.comm-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:30px}
+.panel{background:#fff;border:1px solid var(--line);border-radius:16px;padding:26px}
+.panel h3{font-size:1.2rem;font-weight:800;margin-bottom:18px;display:flex;justify-content:space-between;align-items:center}
+.gallery{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.thumb{border-radius:10px;aspect-ratio:4/3;background:linear-gradient(135deg,#cbd5e1,#94a3b8);position:relative;overflow:hidden}
+.thumb span{position:absolute;left:0;right:0;bottom:0;background:rgba(0,0,0,.55);color:#fff;font-size:.72rem;padding:6px 8px;font-weight:600}
+.notice{list-style:none}
+.notice li{display:flex;justify-content:space-between;gap:10px;padding:12px 2px;border-bottom:1px solid #f1f5f9;font-size:.92rem}
+.notice li a{color:#374151;font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.notice li a:hover{color:var(--blue)}
+.notice .new{color:#fff;background:var(--blue);font-size:.62rem;font-weight:800;padding:1px 5px;border-radius:4px;margin-right:6px}
+.notice .nd{color:#9ca3af;font-size:.8rem;white-space:nowrap}
+@media(max-width:760px){.comm-grid{grid-template-columns:1fr}}
+
+footer{background:#0b1220;color:#9aa6b8;padding:30px 0;font-size:.85rem;text-align:center}
+
+@media(max-width:900px){.menu,.gnb-right .login{display:none}.menu-toggle{display:block}}
+/* 모바일 메뉴 펼침 (script.js 연동) */
+@media(max-width:900px){
+  .menu.open{display:flex;position:absolute;top:66px;left:0;right:0;flex-direction:column;gap:0;background:#fff;border-bottom:1px solid var(--line);box-shadow:0 12px 20px rgba(0,0,0,.06);z-index:60}
+  .menu.open a{padding:14px 24px;border-top:1px solid var(--line)}
+}
