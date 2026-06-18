@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>참여기업 - 동양미래대학교 반도체부트캠프사업단</title>
+<link rel="stylesheet" href="style.css">
+<style>
+/* 채용정보 서브 배너 + 서브탭 (이 페이지 전용) */
+.sub-hero{background:radial-gradient(120% 130% at 78% 0%,#1e4fb0 0%,#0b2e6b 60%,#071c47 100%);color:#fff;padding:54px 0 40px;text-align:center;position:relative;overflow:hidden}
+.sub-hero .eyebrow{color:var(--sky);font-weight:700;letter-spacing:1.5px;font-size:.85rem}
+.sub-hero h1{font-size:2.2rem;font-weight:800;margin-top:8px;letter-spacing:-1px}
+.subtab{display:flex;border-bottom:1px solid var(--line);background:#fff}
+.subtab a{flex:1;text-align:center;padding:18px 8px;font-weight:700;color:#4b5563;border-bottom:3px solid transparent}
+.subtab a.active{color:var(--blue);border-bottom-color:var(--blue);background:#f8fafc}
+.subtab a:hover{color:var(--blue)}
+.crumb{max-width:1200px;margin:0 auto;padding:14px 24px;font-size:.82rem;color:var(--gray);text-align:right}
+.crumb b{color:#374151;font-weight:700}
+.page-title{text-align:center;font-size:1.9rem;font-weight:800;color:#111827;margin:18px 0 28px}
+.comp-table-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:14px}
+table.ctab{width:100%;border-collapse:collapse;font-size:.9rem;min-width:680px}
+table.ctab thead th{background:#f8fafc;color:#374151;font-weight:700;padding:14px 12px;border-bottom:2px solid var(--line);white-space:nowrap}
+table.ctab tbody td{padding:14px 12px;border-bottom:1px solid #f1f5f9;text-align:center;color:#374151}
+table.ctab tbody tr:hover{background:#f8fafc}
+.ctab .nm{font-weight:700;color:#1f2937}
+.ctab .pact{display:inline-block;font-size:.78rem;font-weight:800;padding:5px 13px;border-radius:5px;white-space:nowrap}
+.ctab .pact.y{background:var(--navy);color:#fff}
+.ctab .pact.n{background:#fff;color:var(--blue);border:1px solid var(--blue)}
+.pager{display:flex;justify-content:center;gap:6px;margin:28px 0 10px;flex-wrap:wrap}
+.pager button{border:1px solid var(--line);background:#fff;color:#4b5563;padding:7px 13px;border-radius:7px;font-weight:600;cursor:pointer;font-size:.85rem}
+.pager button.active{background:var(--navy);color:#fff;border-color:var(--navy)}
+.pager button:disabled{opacity:.4;cursor:default}
+</style>
+</head>
+<body>
+
+<!-- GNB -->
+<header>
+  <div class="gnb">
+    <a class="brand" href="index.html">
+      <span class="logo-mark">D</span>
+      <span>동양미래대학교<small>반도체부트캠프사업단</small></span>
+    </a>
+    <nav class="menu">
+      <div class="menu-item"><a href="greeting.html">사업단 소개</a></div>
+      <div class="menu-item"><a href="index.html">교육과정안내/신청</a></div>
+      <div class="menu-item"><a href="index.html">교육시설장비</a></div>
+      <div class="menu-item"><a href="index.html">커뮤니티</a></div>
+      <div class="menu-item">
+        <a href="#">채용정보</a>
+        <ul class="submenu">
+          <li><a href="index.html">채용정보</a></li>
+          <li><a href="companies.html">참여기업</a></li>
+        </ul>
+      </div>
+    </nav>
+    <div class="gnb-right">
+      <a class="login" href="#">로그인</a>
+      <button class="menu-toggle" aria-label="메뉴">☰</button>
+    </div>
+  </div>
+</header>
+
+<!-- 채용정보 배너 -->
+<section class="sub-hero">
+  <p class="eyebrow">DONGYANG MIRAE UNIVERSITY</p>
+  <h1>채용정보</h1>
+</section>
+
+<!-- 서브탭 -->
+<div class="subtab">
+  <a href="index.html">채용정보</a>
+  <a href="companies.html" class="active">참여기업</a>
+</div>
+
+<div class="crumb">🏠 · 채용정보 · <b>참여기업</b></div>
+
+<main class="wrap" style="padding-bottom:60px">
+  <h2 class="page-title">참여기업</h2>
+  <div class="comp-table-wrap" id="compWrap"></div>
+  <div class="pager" id="pager"></div>
+</main>
+
+<footer>
+  <div class="wrap">개인정보처리방침 · 이메일무단수집거부 · 오시는 길<br>© 2026 동양미래대학교 반도체부트캠프사업단. 리뉴얼 프로토타입.</div>
+</footer>
+
+<script src="script.js"></script>
+<script>
+(function () {
+  var rows = [
+    [43,'(주)아나패스','서울','2026-05-22 ~ 2026-05-23',false],
+    [42,'(주)인터그래텍','서울','2026-01-15 ~ 2026-01-16',true],
+    [41,'(주)홍진기연','경기','2026-01-15 ~ 2026-01-16',true],
+    [40,'(주)유콘텍','서울','2026-01-15 ~ 2026-01-16',true],
+    [39,'(주)FST','경기','2026-01-15 ~ 2026-01-16',true],
+    [38,'(주)파스텍','경기','2026-01-15 ~ 2026-01-16',true],
+    [37,'씨에스케이(주)','경기','2026-01-15 ~ 2026-01-16',true],
+    [36,'(주)에이블','경기','2026-01-15 ~ 2026-01-16',true],
+    [35,'에스피엠텍(주)','경기','2026-01-15 ~ 2026-01-16',true],
+    [34,'(주)위센스','서울','2026-01-15 ~ 2026-01-16',true],
+    [33,'(주)에이치피에스피','경기','2025-10-31 ~ 2025-11-01',true],
+    [32,'(주)피에스케이','경기','2025-10-31 ~ 2025-11-01',true],
+    [31,'주성엔지니어링(주)','경기','2025-10-31 ~ 2025-11-01',true],
+    [30,'(주)원익IPS','경기','2025-10-31 ~ 2025-11-01',true],
+    [29,'(주)넥스틴','경기','2025-10-31 ~ 2025-11-01',true],
+    [28,'(주)유진테크','경기','2025-10-31 ~ 2025-11-01',true],
+    [27,'에이에스엠코리아(주)','경기','2025-10-31 ~ 2025-11-01',true],
+    [26,'램리서치코리아(주)','경기','2025-10-31 ~ 2025-11-01',true],
+    [25,'(주)테스','경기','2025-10-31 ~ 2025-11-01',true],
+    [24,'(주)에이티이엔지','경기','2025-05-16 ~ 2025-05-17',true],
+    [23,'(주)글로벌스탠다드테크놀로지','경기','2025-05-16 ~ 2025-05-17',true],
+    [22,'코미코','경기','2025-03-24 ~ 2025-03-25',true],
+    [21,'(주)싸이노스','경기','2025-03-24 ~ 2025-03-25',true],
+    [20,'(주)에스에프에이','경기','2025-03-24 ~ 2025-03-25',true],
+    [19,'(주)지에스피','경기','2025-03-24 ~ 2025-03-25',true],
+    [18,'(주)티이엠씨','충북','2025-01-23 ~ 2025-01-24',true],
+    [17,'에이치비테크놀러지(주)','충남','2025-01-23 ~ 2025-01-24',true],
+    [16,'(주)두산테스나','경기','2025-01-23 ~ 2025-01-24',true],
+    [15,'(주)이오테크닉스','경기','2025-01-23 ~ 2025-01-24',true],
+    [14,'(주)케이씨텍','경기','2024-11-15 ~ 2024-11-16',true],
+    [13,'(주)서플러스글로벌','경기','2024-11-15 ~ 2024-11-16',true],
+    [12,'(주)에프에스티','경기','2024-11-15 ~ 2024-11-16',true],
+    [11,'(주)유니셈','경기','2024-05-24 ~ 2024-05-25',true],
+    [10,'(주)엘오티베큠','경기','2024-05-24 ~ 2024-05-25',true],
+    [9,'(주)에스티아이','경기','2024-05-24 ~ 2024-05-25',true],
+    [8,'한미반도체(주)','인천','2024-05-24 ~ 2024-05-25',true],
+    [7,'(주)디아이','서울','2024-03-22 ~ 2024-03-23',true],
+    [6,'(주)인텍플러스','대전','2024-03-22 ~ 2024-03-23',true],
+    [5,'(주)고영테크놀러지','서울','2024-03-22 ~ 2024-03-23',true],
+    [4,'(주)리노공업','부산','2024-01-19 ~ 2024-01-20',true],
+    [3,'(주)티에스이','충남','2024-01-19 ~ 2024-01-20',true],
+    [2,'(주)해성디에스','경남','2024-01-19 ~ 2024-01-20',true],
+    [1,'(주)심텍','충북','2024-01-19 ~ 2024-01-20',true]
+  ];
+  var perPage = 10, page = 1, totalPages = Math.ceil(rows.length / perPage);
+  var wrap = document.getElementById('compWrap');
+  var pager = document.getElementById('pager');
+
+  function renderTable() {
+    var start = (page - 1) * perPage;
+    var slice = rows.slice(start, start + perPage);
+    var html = '<table class="ctab"><thead><tr><th>번호</th><th>기업체명</th><th>대표자명</th><th>지역</th><th>참여기간</th><th>담당자</th><th>협약여부</th></tr></thead><tbody>';
+    slice.forEach(function (r) {
+      html += '<tr><td>' + r[0] + '</td><td class="nm">' + r[1] + '</td><td>-</td><td>' + r[2] + '</td>'
+        + '<td>' + r[3] + '</td><td>-</td>'
+        + '<td><span class="pact ' + (r[4] ? 'y' : 'n') + '">' + (r[4] ? '협약' : '미협약') + '</span></td></tr>';
+    });
+    html += '</tbody></table>';
+    wrap.innerHTML = html;
+  }
+  function renderPager() {
+    var html = '';
+    html += '<button ' + (page === 1 ? 'disabled' : '') + ' data-go="1">처음</button>';
+    html += '<button ' + (page === 1 ? 'disabled' : '') + ' data-go="' + (page - 1) + '">이전</button>';
+    for (var i = 1; i <= totalPages; i++) {
+      html += '<button class="' + (i === page ? 'active' : '') + '" data-go="' + i + '">' + i + '</button>';
+    }
+    html += '<button ' + (page === totalPages ? 'disabled' : '') + ' data-go="' + (page + 1) + '">다음</button>';
+    html += '<button ' + (page === totalPages ? 'disabled' : '') + ' data-go="' + totalPages + '">맨끝</button>';
+    pager.innerHTML = html;
+    pager.querySelectorAll('button[data-go]').forEach(function (b) {
+      b.addEventListener('click', function () {
+        if (b.disabled) return;
+        page = parseInt(b.getAttribute('data-go'), 10);
+        renderTable(); renderPager();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    });
+  }
+  renderTable(); renderPager();
+})();
+</script>
+</body>
+</html>
