@@ -143,7 +143,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // 행 클릭 시 로그인 이동
     wrap.querySelectorAll('tbody tr').forEach(function (tr) {
       tr.addEventListener('click', function () {
-        window.open(LOGIN_URL, '_blank', 'noopener');
+        window.location.href = LOGIN_URL;
       });
     });
   }
