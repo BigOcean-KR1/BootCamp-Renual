@@ -20,8 +20,13 @@ header{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0
 .logo-mark{width:38px;height:38px;border-radius:9px;background:linear-gradient(135deg,var(--navy),var(--blue));display:flex;align-items:center;justify-content:center;color:var(--yellow);font-weight:900;font-size:1.3rem}
 .brand small{display:block;font-size:.72rem;color:var(--gray);font-weight:600}
 .menu{display:flex;gap:28px}
-.menu a{font-weight:600;color:#374151;font-size:.95rem}
-.menu a:hover{color:var(--blue)}
+.menu-item{position:relative}
+.menu-item>a{display:block;font-weight:600;color:#374151;font-size:.95rem;padding:8px 0}
+.menu-item>a:hover{color:var(--blue)}
+.submenu{list-style:none;position:absolute;top:100%;left:50%;transform:translateX(-50%) translateY(8px);min-width:160px;background:#fff;border:1px solid var(--line);border-radius:10px;box-shadow:0 14px 30px rgba(11,46,107,.12);padding:8px 0;opacity:0;visibility:hidden;transition:.16s;z-index:70}
+.menu-item:hover .submenu{opacity:1;visibility:visible;transform:translateX(-50%) translateY(2px)}
+.submenu li a{display:block;padding:9px 18px;font-size:.88rem;color:#4b5563;font-weight:600;white-space:nowrap}
+.submenu li a:hover{background:#eff6ff;color:var(--blue)}
 .gnb-right{display:flex;align-items:center;gap:14px}
 .login{background:var(--navy);color:#fff;padding:9px 16px;border-radius:8px;font-weight:700;font-size:.85rem}
 .menu-toggle{display:none;background:none;border:none;font-size:1.6rem;color:var(--navy);cursor:pointer}
@@ -131,6 +136,31 @@ footer{background:#0b1220;color:#9aa6b8;padding:30px 0;font-size:.85rem;text-ali
 @media(max-width:900px){.menu,.gnb-right .login{display:none}.menu-toggle{display:block}}
 /* 모바일 메뉴 펼침 (script.js 연동) */
 @media(max-width:900px){
-  .menu.open{display:flex;position:absolute;top:66px;left:0;right:0;flex-direction:column;gap:0;background:#fff;border-bottom:1px solid var(--line);box-shadow:0 12px 20px rgba(0,0,0,.06);z-index:60}
-  .menu.open a{padding:14px 24px;border-top:1px solid var(--line)}
+  .menu.open{display:flex;position:absolute;top:66px;left:0;right:0;flex-direction:column;gap:0;background:#fff;border-bottom:1px solid var(--line);box-shadow:0 12px 20px rgba(0,0,0,.06);z-index:60;max-height:80vh;overflow-y:auto}
+  .menu.open .menu-item>a{padding:14px 24px;border-top:1px solid var(--line)}
+  .menu.open .submenu{position:static;transform:none;opacity:1;visibility:visible;box-shadow:none;border:none;border-radius:0;background:#f8fafc;padding:0;display:none}
+  .menu.open .menu-item.open-sub .submenu{display:block}
+  .menu.open .submenu li a{padding:11px 40px}
+}
+
+/* 추가: 아웃풋 쇼케이스 Zone */
+.showcase-sec{background:#fff;border-top:1px solid var(--line)}
+.show-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.show-card{background:#f8fafc;border:1px solid #eef2f7;border-radius:16px;padding:28px 24px;display:flex;flex-direction:column;transition:.18s}
+.show-card:hover{transform:translateY(-4px);border-color:var(--blue-bright);box-shadow:0 14px 30px rgba(11,46,107,.1)}
+.show-cat{align-self:flex-start;font-size:.72rem;font-weight:800;color:#fff;padding:4px 11px;border-radius:6px;margin-bottom:14px}
+.show-cat.job{background:var(--blue)}
+.show-cat.award{background:var(--orange)}
+.show-cat.intern{background:#0e7490}
+.show-card h3{font-size:1.15rem;font-weight:800;color:#111827;letter-spacing:-.3px}
+.show-card p{margin-top:10px;font-size:.9rem;color:var(--gray);flex:1}
+.show-go{margin-top:16px;font-weight:700;font-size:.88rem;color:var(--blue)}
+.show-card:hover .show-go{color:var(--navy)}
+@media(max-width:760px){.show-grid{grid-template-columns:1fr}}
+
+/* 추가: 모바일 고정 플로팅 신청 버튼 */
+.float-apply{display:none}
+@media(max-width:760px){
+  .float-apply{display:flex;align-items:center;justify-content:center;position:fixed;left:16px;right:16px;bottom:16px;z-index:90;background:var(--yellow);color:var(--navy-deep);font-weight:800;font-size:1rem;padding:15px;border-radius:12px;box-shadow:0 10px 24px rgba(11,46,107,.3)}
+  footer{padding-bottom:90px}
 }
